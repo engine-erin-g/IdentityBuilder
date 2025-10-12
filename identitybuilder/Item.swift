@@ -8,10 +8,11 @@
 import Foundation
 import SwiftData
 
+// Legacy Item model for compatibility
 @Model
 final class Item {
     var timestamp: Date
-    
+
     init(timestamp: Date) {
         self.timestamp = timestamp
     }

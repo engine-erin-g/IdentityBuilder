@@ -7,7 +7,6 @@
 
 import SwiftUI
 import SwiftData
-import Charts
 
 struct WeekView: View {
     @Environment(\.modelContext) private var modelContext
@@ -16,26 +15,33 @@ struct WeekView: View {
     
     @State private var currentWeek = Date()
     @State private var showingRetrospective = false
+
+    private var isCurrentWeek: Bool {
+        Calendar.current.isDate(weekStartDate, equalTo: Date(), toGranularity: .weekOfYear)
+    }
     
     private var weekDates: [Date] {
-        let calendar = Calendar.current
+        var calendar = Calendar.current
+        calendar.firstWeekday = 2 // Monday = 2 (Sunday = 1)
+
         guard let weekInterval = calendar.dateInterval(of: .weekOfYear, for: currentWeek) else {
             return []
         }
-        
+
         var dates: [Date] = []
         var date = weekInterval.start
-        
+
         for _ in 0..<7 {
             dates.append(date)
             date = calendar.date(byAdding: .day, value: 1, to: date) ?? date
         }
-        
+
         return dates
     }
     
     private var weekStartDate: Date {
-        let calendar = Calendar.current
+        var calendar = Calendar.current
+        calendar.firstWeekday = 2 // Monday = 2 (Sunday = 1)
         return calendar.dateInterval(of: .weekOfYear, for: currentWeek)?.start ?? currentWeek
     }
     
@@ -64,189 +70,191 @@ struct WeekView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                Color(UIColor.systemBackground).ignoresSafeArea()
                 
                 ScrollView {
-                    VStack(spacing: 24) {
-                        // Week Navigation Header
-                        HStack {
-                            Button {
-                                withAnimation {
-                                    currentWeek = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: currentWeek) ?? currentWeek
-                                }
-                            } label: {
-                                Image(systemName: "chevron.left")
-                                    .font(.title2)
-                                    .foregroundStyle(.white)
-                            }
-                            
+                    VStack(spacing: 0) {
+                        // Year/Week and Percentages Header
+                        HStack(alignment: .firstTextBaseline) {
+                            let year = Calendar.current.component(.year, from: weekStartDate)
+                            let weekNum = Calendar.current.component(.weekOfYear, from: weekStartDate)
+
+                            Text(String(format: "%d/%d", year, weekNum))
+                                .font(.system(size: 24, weight: .bold))
+                                .foregroundStyle(.primary)
+
                             Spacer()
-                            
-                            VStack {
-                                Text("This Week")
-                                    .font(.title2)
-                                    .foregroundStyle(.blue)
-                                
-                                Text(weekStartDate.formatted(.dateTime.year().weekOfYear()))
-                                    .font(.title)
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(.white)
-                            }
-                            
-                            Spacer()
-                            
-                            Button {
-                                withAnimation {
-                                    currentWeek = Calendar.current.date(byAdding: .weekOfYear, value: 1, to: currentWeek) ?? currentWeek
-                                }
-                            } label: {
-                                Image(systemName: "chevron.right")
-                                    .font(.title2)
-                                    .foregroundStyle(.white)
+
+                            HStack(spacing: 3) {
+                                let currentWeekPercentage = weeklyCompletionData.reduce(0.0) { $0 + $1.1 } / Double(weeklyCompletionData.count)
+
+                                Text("\(Int(weeklyCompletionData.last?.1 ?? 0))%")
+                                    .font(.system(size: 24, weight: .bold))
+                                    .foregroundStyle(.orange)
+
+                                Text("/")
+                                    .font(.system(size: 24, weight: .bold))
+                                    .foregroundStyle(.secondary)
+
+                                Text("\(Int(currentWeekPercentage))%")
+                                    .font(.system(size: 24, weight: .bold))
+                                    .foregroundStyle(.green)
                             }
                         }
-                        .padding(.horizontal)
-                        
+                        .padding(.horizontal, 16)
+                        .padding(.bottom, 4)
+
                         // Week Calendar View
-                        HStack {
-                            ForEach(weekDates, id: \.self) { date in
-                                VStack(spacing: 8) {
+                        HStack(spacing: 0) {
+                            ForEach(weekDates.indices, id: \.self) { index in
+                                let date = weekDates[index]
+                                let isToday = Calendar.current.isDateInToday(date)
+
+                                VStack(spacing: 3) {
                                     Text(date.formatted(.dateTime.weekday(.abbreviated).locale(Locale(identifier: "en_US"))))
-                                        .font(.caption)
-                                        .foregroundStyle(.gray)
-                                    
+                                        .font(.system(size: 10))
+                                        .foregroundStyle(.secondary)
+                                        .textCase(.uppercase)
+
                                     Text("\(Calendar.current.component(.day, from: date))")
-                                        .font(.title3)
-                                        .fontWeight(.medium)
-                                        .foregroundStyle(.white)
+                                        .font(.system(size: 16, weight: .medium))
+                                        .foregroundStyle(isToday ? .white : .primary)
+                                        .frame(width: 32, height: 32)
+                                        .background(
+                                            Circle()
+                                                .fill(isToday ? Color.blue : Color.clear)
+                                        )
                                 }
                                 .frame(maxWidth: .infinity)
                             }
                         }
-                        .padding(.horizontal)
+                        .padding(.horizontal, 8)
                         
-                        // Week Widget Preview
-                        VStack(alignment: .leading, spacing: 16) {
-                            Text("Week Widget Preview")
-                                .font(.title2)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.white)
-                            
-                            ForEach(habits) { habit in
-                                HStack {
-                                    Text("\(habit.identity)(\(habit.streak))")
-                                        .foregroundStyle(.white)
-                                    
-                                    Spacer()
-                                    
-                                    HStack(spacing: 4) {
-                                        ForEach(weekDates, id: \.self) { date in
-                                            Circle()
-                                                .frame(width: 20, height: 20)
-                                                .foregroundStyle(
-                                                    habit.isScheduledForDate(date) ?
-                                                    (habit.isCompletedOnDate(date) ? .green : .red) :
-                                                    .clear
-                                                )
-                                                .overlay(
-                                                    Circle()
-                                                        .stroke(.gray, lineWidth: habit.isScheduledForDate(date) ? 0 : 1)
-                                                )
-                                        }
+                        // Weekly Progress Chart
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Weekly Progress")
+                                .font(.system(size: 16, weight: .bold))
+                                .foregroundStyle(.primary)
+
+                            // Simple bar chart representation
+                            HStack(alignment: .bottom, spacing: 6) {
+                                ForEach(Array(weeklyCompletionData.enumerated()), id: \.offset) { index, data in
+                                    VStack {
+                                        Rectangle()
+                                            .fill(.blue)
+                                            .frame(width: 24, height: max(4, data.1 * 1.2))
+
+                                        Text(data.0)
+                                            .font(.system(size: 10))
+                                            .foregroundStyle(.primary)
                                     }
                                 }
                             }
+                            .frame(height: 140)
+                            .background(
+                                VStack {
+                                    ForEach([100, 75, 50, 25], id: \.self) { value in
+                                        HStack {
+                                            Text("\(value)%")
+                                                .font(.system(size: 10))
+                                                .foregroundStyle(.gray)
+                                            Spacer()
+                                        }
+                                        Spacer()
+                                    }
+                                }
+                            )
                         }
-                        .padding()
+                        .padding(12)
                         .background(
                             RoundedRectangle(cornerRadius: 12)
-                                .fill(Color(.systemGray6))
+                                .fill(Color(UIColor.secondarySystemGroupedBackground))
                         )
-                        .padding(.horizontal)
-                        
-                        // Weekly Progress Chart
-                        VStack(alignment: .leading, spacing: 16) {
-                            Text("Weekly Progress")
-                                .font(.title2)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.white)
-                            
-                            Chart {
-                                ForEach(Array(weeklyCompletionData.enumerated()), id: \.offset) { index, data in
-                                    LinePlot(
-                                        x: .value("Day", data.0),
-                                        y: .value("Percentage", data.1)
-                                    )
-                                    .foregroundStyle(.blue)
-                                }
-                            }
-                            .frame(height: 200)
-                            .chartYScale(domain: 0...100)
-                            .chartXAxis {
-                                AxisMarks(values: weeklyCompletionData.map { $0.0 }) { value in
-                                    AxisGridLine()
-                                    AxisValueLabel()
-                                        .foregroundStyle(.white)
-                                }
-                            }
-                            .chartYAxis {
-                                AxisMarks { value in
-                                    AxisGridLine()
-                                    AxisValueLabel()
-                                        .foregroundStyle(.white)
-                                }
-                            }
-                        }
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(Color(.systemGray6))
-                        )
-                        .padding(.horizontal)
-                        
+                        .padding(.horizontal, 16)
+
                         // Weekly Retrospective Section
-                        VStack(alignment: .leading, spacing: 16) {
+                        VStack(alignment: .leading, spacing: 12) {
                             HStack {
                                 Text("Weekly Retrospective")
-                                    .font(.title2)
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(.white)
-                                
+                                    .font(.system(size: 16, weight: .bold))
+                                    .foregroundStyle(.primary)
+
                                 Spacer()
-                                
+
                                 Button {
                                     showingRetrospective = true
                                 } label: {
                                     Image(systemName: currentWeekRetrospective != nil ? "pencil" : "plus")
+                                        .font(.system(size: 16))
                                         .foregroundStyle(.blue)
                                 }
                             }
-                            
+
                             if let retro = currentWeekRetrospective {
                                 Text(retro.notes.isEmpty ? "No notes added yet." : retro.notes)
-                                    .foregroundStyle(.white)
-                                    .padding()
+                                    .font(.system(size: 13))
+                                    .foregroundStyle(.primary)
+                                    .padding(10)
                                     .background(
                                         RoundedRectangle(cornerRadius: 8)
-                                            .fill(Color(.systemGray5))
+                                            .fill(Color(UIColor.systemGray5))
                                     )
                             } else {
                                 Text("Tap + to add your weekly reflection")
+                                    .font(.system(size: 13))
                                     .foregroundStyle(.gray)
                                     .italic()
                             }
                         }
-                        .padding()
+                        .padding(12)
                         .background(
                             RoundedRectangle(cornerRadius: 12)
-                                .fill(Color(.systemGray6))
+                                .fill(Color(UIColor.secondarySystemGroupedBackground))
                         )
-                        .padding(.horizontal)
+                        .padding(.horizontal, 16)
                     }
                     .padding(.vertical)
                 }
             }
-            .navigationBarHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    HStack(spacing: 6) {
+                        Button {
+                            withAnimation {
+                                currentWeek = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: currentWeek) ?? currentWeek
+                            }
+                        } label: {
+                            Image(systemName: "chevron.left")
+                                .font(.system(size: 16, weight: .medium))
+                                .foregroundStyle(.primary)
+                        }
+
+                        Button {
+                            withAnimation {
+                                currentWeek = Calendar.current.date(byAdding: .weekOfYear, value: 1, to: currentWeek) ?? currentWeek
+                            }
+                        } label: {
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 16, weight: .medium))
+                                .foregroundStyle(isCurrentWeek ? .gray.opacity(0.3) : .primary)
+                        }
+                        .disabled(isCurrentWeek)
+
+                        if !isCurrentWeek {
+                            Button {
+                                withAnimation {
+                                    currentWeek = Date()
+                                }
+                            } label: {
+                                Text("Today")
+                                    .font(.system(size: 14, weight: .medium))
+                                    .foregroundStyle(.blue)
+                            }
+                        }
+                    }
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
         }
         .sheet(isPresented: $showingRetrospective) {
             WeeklyRetrospectiveView(
@@ -282,8 +290,12 @@ struct WeeklyRetrospectiveView: View {
                     .foregroundStyle(.secondary)
                 
                 TextEditor(text: $notes)
-                    .textEditorStyle(.roundedBorder)
                     .frame(minHeight: 200)
+                    .padding(8)
+                    .background(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color(.systemGray4))
+                    )
                 
                 Spacer()
             }

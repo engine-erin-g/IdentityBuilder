@@ -7,7 +7,6 @@
 
 import SwiftUI
 import SwiftData
-import Charts
 
 struct YearView: View {
     @Environment(\.modelContext) private var modelContext
@@ -94,7 +93,7 @@ struct YearView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                Color(UIColor.systemBackground).ignoresSafeArea()
                 
                 ScrollView {
                     VStack(spacing: 24) {
@@ -107,7 +106,7 @@ struct YearView: View {
                             } label: {
                                 Image(systemName: "chevron.left")
                                     .font(.title2)
-                                    .foregroundStyle(.white)
+                                    .foregroundStyle(.primary)
                             }
                             
                             Spacer()
@@ -115,7 +114,7 @@ struct YearView: View {
                             Text("\(Calendar.current.component(.year, from: currentYear))")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
-                                .foregroundStyle(.white)
+                                .foregroundStyle(.primary)
                             
                             Spacer()
                             
@@ -126,7 +125,7 @@ struct YearView: View {
                             } label: {
                                 Image(systemName: "chevron.right")
                                     .font(.title2)
-                                    .foregroundStyle(.white)
+                                    .foregroundStyle(.primary)
                             }
                         }
                         .padding(.horizontal)
@@ -136,33 +135,27 @@ struct YearView: View {
                             Text("Yearly Trends")
                                 .font(.title2)
                                 .fontWeight(.bold)
-                                .foregroundStyle(.white)
+                                .foregroundStyle(.primary)
                             
-                            // Overall trend chart
-                            Chart {
+                            // Simple line chart representation
+                            HStack(alignment: .bottom, spacing: 4) {
                                 ForEach(Array(monthlyData.enumerated()), id: \.offset) { index, data in
-                                    LinePlot(
-                                        x: .value("Month", data.0),
-                                        y: .value("Percentage", data.1)
-                                    )
-                                    .foregroundStyle(.blue)
-                                    .symbol(Circle().strokeBorder(lineWidth: 2))
-                                }
-                            }
-                            .frame(height: 200)
-                            .chartYScale(domain: 0...100)
-                            .chartXAxis {
-                                AxisMarks(values: monthlyData.map { $0.0 }) { value in
-                                    AxisGridLine()
-                                    AxisValueLabel()
-                                        .foregroundStyle(.white)
-                                }
-                            }
-                            .chartYAxis {
-                                AxisMarks { value in
-                                    AxisGridLine()
-                                    AxisValueLabel()
-                                        .foregroundStyle(.white)
+                                    VStack {
+                                        Circle()
+                                            .fill(.blue)
+                                            .frame(width: 6, height: 6)
+                                            .offset(y: CGFloat(100 - data.1) * -1.5)
+                                        
+                                        Rectangle()
+                                            .fill(.blue.opacity(0.3))
+                                            .frame(width: 2, height: max(4, data.1 * 1.5))
+                                        
+                                        Text(String(data.0.prefix(3)))
+                                            .font(.caption2)
+                                            .foregroundStyle(.primary)
+                                            .rotationEffect(.degrees(-45))
+                                    }
+                                    .frame(height: 180)
                                 }
                             }
                         }
@@ -179,40 +172,31 @@ struct YearView: View {
                                 Text("Individual Habit Trends")
                                     .font(.title2)
                                     .fontWeight(.bold)
-                                    .foregroundStyle(.white)
+                                    .foregroundStyle(.primary)
                                 
-                                Chart {
-                                    ForEach(habitTrendData, id: \.0) { habitName, month, percentage in
-                                        LinePlot(
-                                            x: .value("Month", month),
-                                            y: .value("Percentage", percentage),
-                                            series: .value("Habit", habitName)
-                                        )
+                                // Simplified multi-line chart
+                                VStack(alignment: .leading, spacing: 8) {
+                                    ForEach(habits) { habit in
+                                        HStack {
+                                            Text(habit.identity)
+                                                .font(.caption)
+                                                .foregroundStyle(colorForHabit(habit.name))
+                                            
+                                            HStack(spacing: 2) {
+                                                ForEach(monthlyData.indices, id: \.self) { monthIndex in
+                                                    let habitData = habitTrendData.filter { $0.0 == habit.name }
+                                                    let percentage = habitData.count > monthIndex ? habitData[monthIndex].2 : 0
+                                                    
+                                                    Rectangle()
+                                                        .fill(colorForHabit(habit.name))
+                                                        .frame(width: 15, height: max(2, percentage * 0.8))
+                                                        .opacity(0.8)
+                                                }
+                                            }
+                                        }
                                     }
                                 }
-                                .frame(height: 250)
-                                .chartYScale(domain: 0...100)
-                                .chartXAxis {
-                                    AxisMarks(values: monthlyData.map { $0.0 }) { value in
-                                        AxisGridLine()
-                                        AxisValueLabel()
-                                            .foregroundStyle(.white)
-                                    }
-                                }
-                                .chartYAxis {
-                                    AxisMarks { value in
-                                        AxisGridLine()
-                                        AxisValueLabel()
-                                            .foregroundStyle(.white)
-                                    }
-                                }
-                                .chartForegroundStyleScale([
-                                    "Stay curious": .red,
-                                    "1500 Active calories": .blue,
-                                    "Control mouth": .yellow,
-                                    "Control feelings": .green,
-                                    "Build build build": .orange
-                                ])
+                                .frame(height: 200)
                                 
                                 // Legend
                                 LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 8) {
@@ -224,7 +208,7 @@ struct YearView: View {
                                             
                                             Text(habit.name)
                                                 .font(.caption)
-                                                .foregroundStyle(.white)
+                                                .foregroundStyle(.primary)
                                                 .lineLimit(1)
                                             
                                             Spacer()

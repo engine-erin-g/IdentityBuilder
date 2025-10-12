@@ -37,7 +37,3 @@ class SharedData {
         return userDefaults?.object(forKey: Keys.lastUpdate) as? Date
     }
 }
-
-// Make WidgetData encodable for sharing
-extension WidgetData: Codable {}
-extension WidgetHabit: Codable {}

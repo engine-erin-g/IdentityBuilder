@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import WidgetKit
 
 struct NewHabitView: View {
     @Environment(\.modelContext) private var modelContext
@@ -15,17 +16,18 @@ struct NewHabitView: View {
     @State private var habitName = ""
     @State private var identity = ""
     @State private var experiments: [String] = []
+    @State private var experimentHistory: [String] = []
     @State private var newExperiment = ""
-    @State private var selectedDays: Set<Int> = []
-    
+    @State private var selectedDays: Set<Int> = [1, 2, 3, 4, 5, 6, 0] // All days selected by default
+
     private let weekdays = [
-        (0, "Sun"),
         (1, "Mon"),
         (2, "Tue"),
         (3, "Wed"),
         (4, "Thu"),
         (5, "Fri"),
-        (6, "Sat")
+        (6, "Sat"),
+        (0, "Sun")
     ]
     
     var isValidForm: Bool {
@@ -54,9 +56,6 @@ struct NewHabitView: View {
                 }
                 
                 Section("SCHEDULE") {
-                    Text("Choose the days you want to repeat this habit:")
-                        .font(.headline)
-                    
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7), spacing: 12) {
                         ForEach(weekdays, id: \.0) { dayIndex, dayName in
                             Button {
@@ -66,14 +65,18 @@ struct NewHabitView: View {
                                     selectedDays.insert(dayIndex)
                                 }
                             } label: {
-                                VStack {
+                                VStack(spacing: 8) {
                                     Text(dayName)
                                         .font(.caption)
-                                        .foregroundStyle(selectedDays.contains(dayIndex) ? .white : .primary)
-                                    
+                                        .foregroundStyle(.primary)
+
                                     Circle()
+                                        .fill(selectedDays.contains(dayIndex) ? .blue : Color(UIColor.systemGray5))
+                                        .overlay(
+                                            Circle()
+                                                .stroke(Color(UIColor.systemGray3), lineWidth: selectedDays.contains(dayIndex) ? 0 : 1)
+                                        )
                                         .frame(width: 30, height: 30)
-                                        .foregroundStyle(selectedDays.contains(dayIndex) ? .blue : Color(.systemGray5))
                                 }
                             }
                             .buttonStyle(.plain)
@@ -86,10 +89,14 @@ struct NewHabitView: View {
                     HStack {
                         TextField("Add experiment...", text: $newExperiment)
                             .textFieldStyle(.roundedBorder)
-                        
+
                         Button {
                             if !newExperiment.isEmpty {
                                 experiments.append(newExperiment)
+                                // Add to history if not already there
+                                if !experimentHistory.contains(newExperiment) {
+                                    experimentHistory.append(newExperiment)
+                                }
                                 newExperiment = ""
                             }
                         } label: {
@@ -99,12 +106,13 @@ struct NewHabitView: View {
                         }
                         .disabled(newExperiment.isEmpty)
                     }
-                    
+
                     ForEach(experiments.indices, id: \.self) { index in
                         HStack {
                             Text(experiments[index])
                             Spacer()
                             Button {
+                                // Keep in history even when removed
                                 experiments.remove(at: index)
                             } label: {
                                 Image(systemName: "minus.circle.fill")
@@ -144,8 +152,7 @@ struct NewHabitView: View {
                     .padding(.vertical, 8)
                 }
             }
-            .navigationTitle("New Habit")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
@@ -165,17 +172,36 @@ struct NewHabitView: View {
     }
     
     private func addHabit() {
+        // Add any pending experiment in the text field
+        if !newExperiment.isEmpty {
+            experiments.append(newExperiment)
+            if !experimentHistory.contains(newExperiment) {
+                experimentHistory.append(newExperiment)
+            }
+        }
+
         let newHabit = Habit(
             name: habitName,
             identity: identity,
             experiments: experiments,
             selectedDays: selectedDays
         )
-        
+
+        // Set experiment history
+        newHabit.experimentHistory = experimentHistory
+
         modelContext.insert(newHabit)
-        
+
         do {
             try modelContext.save()
+
+            // Fetch all habits and update widget data
+            let fetchDescriptor = FetchDescriptor<Habit>()
+            if let allHabits = try? modelContext.fetch(fetchDescriptor) {
+                let widgetData = allHabits.toWidgetData()
+                SharedData.shared.saveWidgetData(widgetData)
+                WidgetCenter.shared.reloadAllTimelines()
+            }
         } catch {
             print("Error saving habit: \(error)")
         }

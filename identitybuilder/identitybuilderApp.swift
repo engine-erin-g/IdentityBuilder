@@ -12,6 +12,9 @@ import SwiftData
 struct identitybuilderApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
+            Habit.self,
+            HabitCompletion.self,
+            WeeklyRetrospective.self,
             Item.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)

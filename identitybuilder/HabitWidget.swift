@@ -7,7 +7,6 @@
 
 import WidgetKit
 import SwiftUI
-import SwiftData
 
 struct HabitWidget: Widget {
     let kind: String = "HabitWidget"
@@ -25,115 +24,39 @@ struct HabitWidget: Widget {
 
 struct HabitWidgetProvider: TimelineProvider {
     func placeholder(in context: Context) -> HabitWidgetEntry {
-        HabitWidgetEntry(
-            date: Date(),
-            habits: sampleHabits(),
-            weekNumber: Calendar.current.component(.weekOfYear, from: Date()),
-            currentWeekCompletion: 66,
-            lastWeekCompletion: 94
-        )
+        HabitWidgetEntry(date: Date(), widgetData: .sample)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (HabitWidgetEntry) -> ()) {
-        let entry = HabitWidgetEntry(
-            date: Date(),
-            habits: sampleHabits(),
-            weekNumber: Calendar.current.component(.weekOfYear, from: Date()),
-            currentWeekCompletion: 66,
-            lastWeekCompletion: 94
-        )
+        let entry = HabitWidgetEntry(date: Date(), widgetData: .sample)
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<HabitWidgetEntry>) -> ()) {
-        // Load real data from SwiftData here if needed
         let currentDate = Date()
-        let entry = HabitWidgetEntry(
-            date: currentDate,
-            habits: loadHabitsData(),
-            weekNumber: Calendar.current.component(.weekOfYear, from: currentDate),
-            currentWeekCompletion: calculateCurrentWeekCompletion(),
-            lastWeekCompletion: calculateLastWeekCompletion()
-        )
+        let widgetData = loadWidgetData(for: currentDate)
+        let entry = HabitWidgetEntry(date: currentDate, widgetData: widgetData)
 
-        let timeline = Timeline(entries: [entry], policy: .atEnd)
+        // Update every hour
+        let nextUpdate = Calendar.current.date(byAdding: .hour, value: 1, to: currentDate) ?? currentDate
+        let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
         completion(timeline)
     }
     
-    private func loadHabitsData() -> [HabitWidgetData] {
-        // In a real implementation, you would load from SwiftData
-        return sampleHabits()
-    }
-    
-    private func calculateCurrentWeekCompletion() -> Int {
-        // Calculate real completion percentage
-        return 66
-    }
-    
-    private func calculateLastWeekCompletion() -> Int {
-        // Calculate real last week completion
-        return 94
-    }
-    
-    private func sampleHabits() -> [HabitWidgetData] {
-        let calendar = Calendar.current
-        let today = Date()
-        
-        // Get current week dates
-        guard let weekInterval = calendar.dateInterval(of: .weekOfYear, for: today) else {
-            return []
+    private func loadWidgetData(for date: Date) -> WidgetData {
+        // Try to load real data from shared UserDefaults
+        if let savedData = SharedData.shared.loadWidgetData() {
+            return savedData
         }
         
-        var weekDates: [Date] = []
-        var date = weekInterval.start
-        
-        for _ in 0..<7 {
-            weekDates.append(date)
-            date = calendar.date(byAdding: .day, value: 1, to: date) ?? date
-        }
-        
-        return [
-            HabitWidgetData(
-                identity: "Reader",
-                streak: 25,
-                weeklyCompletions: [true, true, true, false, false, false, false]
-            ),
-            HabitWidgetData(
-                identity: "Athlete",
-                streak: 1,
-                weeklyCompletions: [true, false, true, false, false, false, false]
-            ),
-            HabitWidgetData(
-                identity: "Temperance",
-                streak: 0,
-                weeklyCompletions: [true, false, false, false, false, false, false]
-            ),
-            HabitWidgetData(
-                identity: "Present",
-                streak: 4,
-                weeklyCompletions: [true, true, false, false, false, false, false]
-            ),
-            HabitWidgetData(
-                identity: "Entrepreneur",
-                streak: 4,
-                weeklyCompletions: [true, true, false, false, false, false, false]
-            )
-        ]
+        // Fallback to sample data
+        return .sample
     }
 }
 
 struct HabitWidgetEntry: TimelineEntry {
     let date: Date
-    let habits: [HabitWidgetData]
-    let weekNumber: Int
-    let currentWeekCompletion: Int
-    let lastWeekCompletion: Int
-}
-
-struct HabitWidgetData {
-    let identity: String
-    let streak: Int
-    let weeklyCompletions: [Bool] // Array of 7 bools for each day of the week
+    let widgetData: WidgetData
 }
 
 struct HabitWidgetEntryView: View {
@@ -143,7 +66,7 @@ struct HabitWidgetEntryView: View {
         VStack(alignment: .leading, spacing: 12) {
             // Header
             HStack {
-                Text("Week \(entry.weekNumber)")
+                Text("Week \(entry.widgetData.weekNumber)")
                     .font(.title2)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
@@ -151,7 +74,7 @@ struct HabitWidgetEntryView: View {
                 Spacer()
                 
                 HStack(spacing: 4) {
-                    Text("\(entry.currentWeekCompletion)%")
+                    Text("\(entry.widgetData.currentWeekCompletion)%")
                         .font(.title2)
                         .fontWeight(.bold)
                         .foregroundColor(.orange)
@@ -159,7 +82,7 @@ struct HabitWidgetEntryView: View {
                     Text("/")
                         .foregroundColor(.gray)
                     
-                    Text("\(entry.lastWeekCompletion)%")
+                    Text("\(entry.widgetData.lastWeekCompletion)%")
                         .font(.title2)
                         .fontWeight(.bold)
                         .foregroundColor(.green)
@@ -168,7 +91,7 @@ struct HabitWidgetEntryView: View {
             
             // Habits
             VStack(alignment: .leading, spacing: 8) {
-                ForEach(entry.habits, id: \.identity) { habit in
+                ForEach(entry.widgetData.habits, id: \.identity) { habit in
                     HabitRowWidget(habit: habit)
                 }
             }
@@ -181,7 +104,7 @@ struct HabitWidgetEntryView: View {
 }
 
 struct HabitRowWidget: View {
-    let habit: HabitWidgetData
+    let habit: WidgetHabit
     
     var body: some View {
         HStack {
@@ -192,7 +115,7 @@ struct HabitRowWidget: View {
             Spacer()
             
             HStack(spacing: 4) {
-                ForEach(0..<7) { dayIndex in
+                ForEach(0..<7, id: \.self) { dayIndex in
                     Circle()
                         .frame(width: 16, height: 16)
                         .foregroundColor(completionColor(for: dayIndex))
@@ -208,7 +131,8 @@ struct HabitRowWidget: View {
         guard dayIndex < habit.weeklyCompletions.count else { return .gray }
         
         let isCompleted = habit.weeklyCompletions[dayIndex]
-        let isPastDay = dayIndex < Calendar.current.component(.weekday, from: Date()) - 1
+        let currentDayOfWeek = Calendar.current.component(.weekday, from: Date()) - 1 // Convert to 0-based
+        let isPastDay = dayIndex < currentDayOfWeek
         
         if isCompleted {
             return .green
@@ -225,7 +149,8 @@ struct HabitRowWidget: View {
         }
         
         let isCompleted = habit.weeklyCompletions[dayIndex]
-        let isPastDay = dayIndex < Calendar.current.component(.weekday, from: Date()) - 1
+        let currentDayOfWeek = Calendar.current.component(.weekday, from: Date()) - 1
+        let isPastDay = dayIndex < currentDayOfWeek
         
         if isCompleted {
             return AnyView(
@@ -248,15 +173,5 @@ struct HabitRowWidget: View {
 #Preview(as: .systemMedium) {
     HabitWidget()
 } timeline: {
-    HabitWidgetEntry(
-        date: Date(),
-        habits: [
-            HabitWidgetData(identity: "Reader", streak: 25, weeklyCompletions: [true, true, true, false, false, false, false]),
-            HabitWidgetData(identity: "Athlete", streak: 1, weeklyCompletions: [true, false, true, false, false, false, false]),
-            HabitWidgetData(identity: "Temperance", streak: 0, weeklyCompletions: [true, false, false, false, false, false, false])
-        ],
-        weekNumber: 41,
-        currentWeekCompletion: 66,
-        lastWeekCompletion: 94
-    )
+    HabitWidgetEntry(date: Date(), widgetData: .sample)
 }

@@ -8,13 +8,13 @@
 import Foundation
 
 // Simple models for the widget to avoid SwiftData complexities in widgets
-struct WidgetHabit {
+struct WidgetHabit: Codable {
     let identity: String
     let streak: Int
     let weeklyCompletions: [Bool] // Array of 7 bools for each day of the week
 }
 
-struct WidgetData {
+struct WidgetData: Codable {
     let weekNumber: Int
     let currentWeekCompletion: Int
     let lastWeekCompletion: Int
