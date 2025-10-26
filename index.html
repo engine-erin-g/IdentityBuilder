@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identity Builder - Habit Tracking Reimagined</title>
+    <meta name="description" content="Transform your habits by connecting daily actions to the identity you want to embody. Run experiments to discover what makes habits stick.">
+    <style>
+        :root {
+            --primary-color: #007AFF;
+            --primary-dark: #0051D5;
+            --secondary-color: #5856D6;
+            --bg-color: #FFFFFF;
+            --text-color: #1C1C1E;
+            --text-secondary: #6C6C70;
+            --card-bg: #F2F2F7;
+            --border-radius: 12px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #000000;
+                --text-color: #FFFFFF;
+                --text-secondary: #AEAEB2;
+                --card-bg: #1C1C1E;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-color);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--card-bg);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-color);
+            padding: 32px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 42px;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .about p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Privacy Policy Section */
+        .privacy {
+            padding: 80px 0;
+            background-color: var(--card-bg);
+        }
+
+        .privacy h2 {
+            font-size: 42px;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .privacy h3 {
+            font-size: 28px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .privacy p, .privacy ul {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .privacy ul {
+            margin-left: 24px;
+        }
+
+        .privacy li {
+            margin-bottom: 8px;
+        }
+
+        .privacy .last-updated {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+
+        .cta-section .btn-primary {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .cta-section .btn-primary:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .features h2,
+            .about h2,
+            .privacy h2,
+            .cta-section h2 {
+                font-size: 32px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Identity Builder</div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Build the Person You Want to Become</h1>
+                <p class="subtitle">Identity Builder helps you transform your habits by connecting daily actions to the identity you want to embody—like becoming an "Athlete" or "Reader"—so you're not just tracking tasks, you're becoming someone new. Run experiments with each habit to discover what makes it stick, building a personal playbook of strategies that work uniquely for you.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Download on App Store</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Key Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Identity-Based Habits</h3>
+                        <p>Connect your daily actions to who you're becoming. Track "Athlete" or "Reader" instead of just exercises or books.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔬</div>
+                        <h3>Run Experiments</h3>
+                        <p>Test different strategies to make your habits stick. Build a personal playbook of what works for you.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Track Your Progress</h3>
+                        <p>Visualize your growth with streaks, weekly reflections, and yearly trend charts.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📅</div>
+                        <h3>Flexible Scheduling</h3>
+                        <p>Set custom schedules for each habit. Build streaks that honor your unique rhythm.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">✍️</div>
+                        <h3>Weekly Retrospectives</h3>
+                        <p>Reflect on your progress each week and learn from your journey.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <h3>AI-Powered Insights</h3>
+                        <p>Get personalized suggestions and inspiration to help you stay motivated and overcome obstacles on your journey.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <h2>Benjamin Franklin's 13 Virtues</h2>
+                <p>Inspired by Benjamin Franklin's systematic approach to self-improvement. At age 20, Franklin identified 13 virtues essential to his character and tracked his progress daily. He focused on one virtue each week, creating a perpetual cycle of growth. Identity Builder brings this timeless practice into the modern age, helping you build the character you aspire to through deliberate daily practice.</p>
+                <div class="feature-grid" style="margin-top: 40px;">
+                    <div class="feature-card">
+                        <h3>1. Temperance</h3>
+                        <p>Eat not to dullness; drink not to elevation.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>2. Silence</h3>
+                        <p>Speak not but what may benefit others or yourself.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>3. Order</h3>
+                        <p>Let all your things have their places; let each part of your business have its time.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>4. Resolution</h3>
+                        <p>Resolve to perform what you ought; perform without fail what you resolve.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>5. Frugality</h3>
+                        <p>Make no expense but to do good to others or yourself.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>6. Industry</h3>
+                        <p>Lose no time; be always employed in something useful.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>7. Sincerity</h3>
+                        <p>Use no hurtful deceit; think innocently and justly.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>8. Justice</h3>
+                        <p>Wrong none by doing injuries, or omitting the benefits that are your duty.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>9. Moderation</h3>
+                        <p>Avoid extremes; forbear resenting injuries so much as you think they deserve.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>10. Cleanliness</h3>
+                        <p>Tolerate no uncleanliness in body, clothes, or habitation.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>11. Tranquility</h3>
+                        <p>Be not disturbed at trifles, or at accidents common or unavoidable.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>12. Chastity</h3>
+                        <p>Rarely use venery but for health or offspring.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>13. Humility</h3>
+                        <p>Imitate Jesus and Socrates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="privacy" id="privacy">
+            <div class="container">
+                <h2>Privacy Policy</h2>
+                <p class="last-updated">Last Updated: October 26, 2025</p>
+
+                <h3>Your Privacy Matters</h3>
+                <p>Identity Builder is built with privacy as a core principle. We believe your personal growth journey should remain personal.</p>
+
+                <h3>Data Collection</h3>
+                <p>Identity Builder collects and stores the following data locally on your device:</p>
+                <ul>
+                    <li>Habit names and descriptions</li>
+                    <li>Identity labels you assign to habits</li>
+                    <li>Habit completion records and dates</li>
+                    <li>Experiments you've tried with each habit</li>
+                    <li>Weekly retrospective notes</li>
+                    <li>Custom scheduling preferences</li>
+                </ul>
+
+                <h3>Local Storage Only</h3>
+                <p>All of your data is stored exclusively on your device using Apple's SwiftData framework. We do not:</p>
+                <ul>
+                    <li>Transmit your data to any servers</li>
+                    <li>Collect analytics or usage statistics</li>
+                    <li>Track your behavior or habits</li>
+                    <li>Sell or share your information with third parties</li>
+                    <li>Require account creation or sign-in</li>
+                </ul>
+
+                <h3>Data Export and Backup</h3>
+                <p>You have complete control over your data. Identity Builder includes CSV export functionality, allowing you to:</p>
+                <ul>
+                    <li>Export all your habit data at any time</li>
+                    <li>Create backups of your progress</li>
+                    <li>Import data back into the app</li>
+                    <li>Move your data to other platforms if desired</li>
+                </ul>
+
+                <h3>App Permissions</h3>
+                <p>Identity Builder may request the following permissions:</p>
+                <ul>
+                    <li><strong>Notifications:</strong> To remind you about your habits (optional, you control this)</li>
+                    <li><strong>Files Access:</strong> Only when you choose to export or import CSV backups</li>
+                </ul>
+
+                <h3>Third-Party Services</h3>
+                <p>Identity Builder does not integrate with any third-party analytics, advertising, or tracking services.</p>
+
+                <h3>Children's Privacy</h3>
+                <p>Identity Builder does not knowingly collect data from children under 13. Since all data is stored locally and we don't collect any personal information, the app can be safely used by users of all ages.</p>
+
+                <h3>Changes to Privacy Policy</h3>
+                <p>If we make changes to this privacy policy, we will update the "Last Updated" date and notify users through the app or this website.</p>
+
+                <h3>Open Source</h3>
+                <p>Identity Builder is open source. You can review the complete source code to verify our privacy practices at our GitHub repository.</p>
+
+                <h3>Contact</h3>
+                <p>If you have questions about this privacy policy or your data, please open an issue on our GitHub repository or contact us through the App Store.</p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Start Building Your Identity Today</h2>
+                <p>Available for iOS. Free and open source.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Download Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Identity Builder. Open source and built with SwiftUI.</p>
+            <div class="footer-links">
+                <a href="https://github.com/yourusername/identitybuilder">GitHub</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation to feature cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+
+            // Add animation to hero section
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.opacity = '0';
+                hero.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    hero.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    hero.style.opacity = '1';
+                    hero.style.transform = 'translateY(0)';
+                }, 100);
+            }
+        });
+
+        // Add active state to navigation on scroll
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 50) {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
