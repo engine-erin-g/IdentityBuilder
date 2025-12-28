@@ -1,0 +1,16 @@
+{
+  "source": "/Users/ndrios/Documents/IdentityBuilder/identitybuilder/TrendCharts.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Avg: %lld%%",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 238
+        }
+      }
+    ]
+  },
+  "version": 1
+}

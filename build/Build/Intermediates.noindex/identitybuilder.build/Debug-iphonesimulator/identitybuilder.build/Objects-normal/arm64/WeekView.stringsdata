@@ -1,0 +1,568 @@
+{
+  "source": "/Users/ndrios/Documents/IdentityBuilder/identitybuilder/WeekView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Weekly Retrospective",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 179
+        }
+      },
+      {
+        "comment": "",
+        "key": "Reflect on what worked and what didn't",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 202
+        }
+      },
+      {
+        "comment": "",
+        "key": "Completed",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 234
+        }
+      },
+      {
+        "comment": "",
+        "key": "Missed",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 243
+        }
+      },
+      {
+        "comment": "",
+        "key": "Future",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 252
+        }
+      },
+      {
+        "comment": "",
+        "key": "Not scheduled",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 262
+        }
+      },
+      {
+        "comment": "",
+        "key": "Completed (incl. today) ÷ (Completed + Not Completed excl. today)",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 290
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%% = %lld / (%lld + %lld)",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 294
+        }
+      },
+      {
+        "comment": "",
+        "key": "Actual Rate",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 279
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 285
+        }
+      },
+      {
+        "comment": "",
+        "key": "1 - (Not Completed excl. today ÷ All scheduled this week)",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 319
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%% = 1 - (%lld / %lld)",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 323
+        }
+      },
+      {
+        "comment": "",
+        "key": "Potential Rate",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 308
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 314
+        }
+      },
+      {
+        "comment": "",
+        "key": "Try Widgets",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 341
+        }
+      },
+      {
+        "comment": "",
+        "key": "|",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 467
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 471
+        }
+      },
+      {
+        "comment": "",
+        "key": "|",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 476
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 480
+        }
+      },
+      {
+        "comment": "",
+        "key": "How did this week go?",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 586
+        }
+      },
+      {
+        "comment": "",
+        "key": "Reflect on your habits, wins, and lessons learned",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 590
+        }
+      },
+      {
+        "comment": "",
+        "key": "Start typing...",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 599
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 628
+        }
+      },
+      {
+        "comment": "",
+        "key": "(%lld)",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 680
+        }
+      },
+      {
+        "comment": "",
+        "key": "Weekly Trend",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 853
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 894
+        }
+      },
+      {
+        "comment": "",
+        "key": "Overall",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 958
+        }
+      },
+      {
+        "comment": "",
+        "key": "10-Week Trend",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 1153
+        }
+      },
+      {
+        "comment": "",
+        "key": "Avg: %lld%%",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 1162
+        }
+      },
+      {
+        "comment": "",
+        "key": "Completed",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1247
+        }
+      },
+      {
+        "comment": "",
+        "key": "Missed",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1256
+        }
+      },
+      {
+        "comment": "",
+        "key": "Future",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1265
+        }
+      },
+      {
+        "comment": "",
+        "key": "Not scheduled",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1275
+        }
+      },
+      {
+        "comment": "",
+        "key": "Completed (incl. today) ÷ (Completed + Not Completed excl. today)",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1294
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%% = %lld / (%lld + %lld)",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1298
+        }
+      },
+      {
+        "comment": "",
+        "key": "Actual Rate",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1283
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1289
+        }
+      },
+      {
+        "comment": "",
+        "key": "1 - (Not Completed excl. today ÷ All scheduled this week)",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1322
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%% = 1 - (%lld / %lld)",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1326
+        }
+      },
+      {
+        "comment": "",
+        "key": "Potential Rate",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1311
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1317
+        }
+      },
+      {
+        "comment": "",
+        "key": "Try Widgets",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1344
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 1368
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 1570
+        }
+      },
+      {
+        "comment": "",
+        "key": "|",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 1575
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 1579
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add Widgets to Your Home Screen",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1601
+        }
+      },
+      {
+        "comment": "",
+        "key": "Stay motivated by seeing your habits at a glance",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1604
+        }
+      },
+      {
+        "comment": "",
+        "key": "How to Add a Widget",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1616
+        }
+      },
+      {
+        "comment": "",
+        "key": "1",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1626
+        }
+      },
+      {
+        "comment": "",
+        "key": "Long press your Home Screen",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1632
+        }
+      },
+      {
+        "comment": "",
+        "key": "Press and hold any empty area on your Home Screen until the apps start jiggling",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1634
+        }
+      },
+      {
+        "comment": "",
+        "key": "2",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1647
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tap the + button",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1653
+        }
+      },
+      {
+        "comment": "",
+        "key": "Look for the plus button in the top-left corner of your screen",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1655
+        }
+      },
+      {
+        "comment": "",
+        "key": "3",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1668
+        }
+      },
+      {
+        "comment": "",
+        "key": "Search for 'identitybuilder'",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1674
+        }
+      },
+      {
+        "comment": "",
+        "key": "Type 'identitybuilder' in the search bar or scroll to find it",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1676
+        }
+      },
+      {
+        "comment": "",
+        "key": "4",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1689
+        }
+      },
+      {
+        "comment": "",
+        "key": "Choose a widget",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1695
+        }
+      },
+      {
+        "comment": "",
+        "key": "Select either 'Habits Overview' or 'Completion Rate', pick a size, and tap 'Add Widget'",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1697
+        }
+      },
+      {
+        "comment": "",
+        "key": "5",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 1710
+        }
+      },
+      {
+        "comment": "",
+        "key": "Position your widget",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1716
+        }
+      },
+      {
+        "comment": "",
+        "key": "Drag the widget to your desired location and tap 'Done'",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1718
+        }
+      },
+      {
+        "comment": "",
+        "key": "Available Widgets:",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1731
+        }
+      },
+      {
+        "comment": "",
+        "key": "Habits Overview",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1743
+        }
+      },
+      {
+        "comment": "",
+        "key": "Shows all your identities with 7-day completion dots (Medium & Large sizes)",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1745
+        }
+      },
+      {
+        "comment": "",
+        "key": "Completion Rate",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1760
+        }
+      },
+      {
+        "comment": "",
+        "key": "Displays your actual and potential completion rates (Small & Medium sizes)",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1762
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 1775
+        }
+      }
+    ]
+  },
+  "version": 1
+}

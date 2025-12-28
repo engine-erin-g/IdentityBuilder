@@ -1,0 +1,200 @@
+{
+  "source": "/Users/ndrios/Documents/IdentityBuilder/identitybuilder/NewHabitView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Hold on there, overachiever! 🎯",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 183
+        }
+      },
+      {
+        "comment": "",
+        "key": "IDENTITY",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 48
+        }
+      },
+      {
+        "comment": "",
+        "key": "HABIT",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 57
+        }
+      },
+      {
+        "comment": "",
+        "key": "SCHEDULE",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 66
+        }
+      },
+      {
+        "comment": "",
+        "key": "EXPERIMENTS (OPTIONAL)",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 96
+        }
+      },
+      {
+        "comment": "",
+        "key": "e.g., \"Athlete\", \"Reader\", \"Present\", \"Leader\", \"Artist\", \"Entrepreneur\"",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 52
+        }
+      },
+      {
+        "comment": "",
+        "key": "What identity are you building?",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 49
+        }
+      },
+      {
+        "comment": "",
+        "key": "e.g., \"Exercise for 30 minutes\", \"Read for 20 minutes\"",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 61
+        }
+      },
+      {
+        "comment": "",
+        "key": "What does this identity do daily?",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 58
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add experiment...",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 98
+        }
+      },
+      {
+        "comment": "",
+        "key": "Good habits - Make them:",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 133
+        }
+      },
+      {
+        "comment": "",
+        "key": "Bad habits - Make them:",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 146
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Obvious: put gym shoes by door, prep tomorrow's clothes",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 138
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Attractive: only watch shows while exercising, use nice journal",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 139
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Easy: start with 2 min, reduce steps, pre-prep",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 140
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Satisfying: track with X's, share progress, reward yourself",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 141
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Invisible: hide phone in drawer, keep junk food out of house",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 152
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Unattractive: visualize consequences, make it ugly",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 153
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Difficult: uninstall apps, add friction, lock it away",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 154
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Unsatisfying: accountability partner, public commitment",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 155
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 166
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 172
+        }
+      },
+      {
+        "comment": "",
+        "key": "OK",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 184
+        }
+      },
+      {
+        "comment": "",
+        "key": "Even Benjamin Franklin limited himself to 13 daily habits! Focus on mastering these before adding more.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 186
+        }
+      }
+    ]
+  },
+  "version": 1
+}

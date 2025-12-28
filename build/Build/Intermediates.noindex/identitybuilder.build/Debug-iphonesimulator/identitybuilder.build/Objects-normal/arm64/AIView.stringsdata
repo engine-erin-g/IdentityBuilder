@@ -1,0 +1,64 @@
+{
+  "source": "/Users/ndrios/Documents/IdentityBuilder/identitybuilder/AIView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Loading experiment examples...",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 73
+        }
+      },
+      {
+        "comment": "",
+        "key": "Paste in the AI tool of your choice",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 100
+        }
+      },
+      {
+        "comment": "",
+        "key": "Prompt copied!",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 96
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 239
+        }
+      },
+      {
+        "comment": "",
+        "key": "No experiments yet",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 276
+        }
+      },
+      {
+        "comment": "",
+        "key": "Current Experiments",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 260
+        }
+      },
+      {
+        "comment": "",
+        "key": "AI",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 310
+        }
+      }
+    ]
+  },
+  "version": 1
+}

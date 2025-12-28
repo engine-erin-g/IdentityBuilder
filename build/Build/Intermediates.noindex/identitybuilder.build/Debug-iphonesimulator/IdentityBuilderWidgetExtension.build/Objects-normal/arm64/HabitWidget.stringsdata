@@ -1,0 +1,152 @@
+{
+  "source": "/Users/ndrios/Documents/IdentityBuilder/identitybuilder/HabitWidget.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Habits Overview",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 20
+        }
+      },
+      {
+        "comment": "",
+        "key": "View all your identities with 7-day completion dots",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 21
+        }
+      },
+      {
+        "comment": "",
+        "key": "CW%lld",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 72
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 78
+        }
+      },
+      {
+        "comment": "",
+        "key": "(%lld)",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 110
+        }
+      },
+      {
+        "comment": "",
+        "key": "Completion Rate",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 169
+        }
+      },
+      {
+        "comment": "",
+        "key": "View your actual and potential completion rates",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 170
+        }
+      },
+      {
+        "comment": "",
+        "key": "CW%lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 189
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 194
+        }
+      },
+      {
+        "comment": "",
+        "key": "Actual",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 198
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 205
+        }
+      },
+      {
+        "comment": "",
+        "key": "Potential",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 209
+        }
+      },
+      {
+        "comment": "",
+        "key": "Actual Rate",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 225
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 229
+        }
+      },
+      {
+        "comment": "",
+        "key": "CW%lld",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 233
+        }
+      },
+      {
+        "comment": "",
+        "key": "Potential Rate",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 243
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 247
+        }
+      },
+      {
+        "comment": "",
+        "key": "If all completed",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 251
+        }
+      }
+    ]
+  },
+  "version": 1
+}

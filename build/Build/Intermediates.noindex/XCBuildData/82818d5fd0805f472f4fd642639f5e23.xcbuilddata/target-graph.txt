@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'identitybuilder' in project 'identitybuilder'
+➜ Explicit dependency on target 'IdentityBuilderWidgetExtension' in project 'identitybuilder'
+Target 'IdentityBuilderWidgetExtension' in project 'identitybuilder' (no dependencies)

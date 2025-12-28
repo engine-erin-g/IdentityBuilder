@@ -1,0 +1,96 @@
+{
+  "source": "/Users/ndrios/Documents/IdentityBuilder/identitybuilder/AIComponents.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 74
+        }
+      },
+      {
+        "comment": "",
+        "key": "Overall Completion Rate",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 78
+        }
+      },
+      {
+        "comment": "",
+        "key": "How it's calculated",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 89
+        }
+      },
+      {
+        "comment": "",
+        "key": "Formula",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 108
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld ÷ (%lld + %lld) × 100 = %lld%%",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 112
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 135
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add a new experiment",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 179
+        }
+      },
+      {
+        "comment": "",
+        "key": "What will you try to make this habit stick?",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 183
+        }
+      },
+      {
+        "comment": "",
+        "key": "e.g., Set out gym clothes the night before",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 187
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 208
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 214
+        }
+      }
+    ]
+  },
+  "version": 1
+}

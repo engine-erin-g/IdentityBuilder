@@ -146,6 +146,7 @@ struct TodayView: View {
                                     Text("Today")
                                         .font(.system(size: 14, weight: .medium))
                                         .foregroundStyle(.blue)
+                                        .fixedSize()
                                 }
                             }
                         }

@@ -1,0 +1,32 @@
+{
+  "source": "/Users/ndrios/Documents/IdentityBuilder/identitybuilder/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Day",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 22
+        }
+      },
+      {
+        "comment": "",
+        "key": "Week",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "AI",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 48
+        }
+      }
+    ]
+  },
+  "version": 1
+}

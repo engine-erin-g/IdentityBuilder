@@ -1,0 +1,360 @@
+{
+  "source": "/Users/ndrios/Documents/IdentityBuilder/identitybuilder/TodayView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Export or import your habit data as CSV.",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 179
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 81
+        }
+      },
+      {
+        "comment": "",
+        "key": "Today",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 146
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export Backup",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 180
+        }
+      },
+      {
+        "comment": "",
+        "key": "Import Backup",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 183
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete All",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 186
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 189
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete Habit",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 703
+        }
+      },
+      {
+        "comment": "",
+        "key": "Not scheduled",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 591
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 611
+        }
+      },
+      {
+        "comment": "",
+        "key": "streak",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 615
+        }
+      },
+      {
+        "comment": "",
+        "key": "Edit",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 665
+        }
+      },
+      {
+        "comment": "",
+        "key": "Move Up",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 673
+        }
+      },
+      {
+        "comment": "",
+        "key": "Move Down",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 680
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 689
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 704
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 705
+        }
+      },
+      {
+        "comment": "",
+        "key": "Are you sure you want to delete \"%@\"? This action cannot be undone.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 709
+        }
+      },
+      {
+        "comment": "",
+        "key": "IDENTITY",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 802
+        }
+      },
+      {
+        "comment": "",
+        "key": "HABIT",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 811
+        }
+      },
+      {
+        "comment": "",
+        "key": "SCHEDULE",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 820
+        }
+      },
+      {
+        "comment": "",
+        "key": "EXPERIMENTS (OPTIONAL)",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 850
+        }
+      },
+      {
+        "comment": "",
+        "key": "EXPERIMENT HISTORY",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 919
+        }
+      },
+      {
+        "comment": "",
+        "key": "e.g., \"Athlete\", \"Reader\", \"Present\", \"Leader\", \"Artist\", \"Entrepreneur\"",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 806
+        }
+      },
+      {
+        "comment": "",
+        "key": "What identity are you building?",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 803
+        }
+      },
+      {
+        "comment": "",
+        "key": "e.g., \"Exercise for 30 minutes\", \"Read for 20 minutes\"",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 815
+        }
+      },
+      {
+        "comment": "",
+        "key": "What does this identity do daily?",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 812
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add experiment...",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 852
+        }
+      },
+      {
+        "comment": "",
+        "key": "Good habits - Make them:",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 887
+        }
+      },
+      {
+        "comment": "",
+        "key": "Bad habits - Make them:",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 900
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Obvious: put gym shoes by door, prep tomorrow's clothes",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 892
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Attractive: only watch shows while exercising, use nice journal",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 893
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Easy: start with 2 min, reduce steps, pre-prep",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 894
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Satisfying: track with X's, share progress, reward yourself",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 895
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Invisible: hide phone in drawer, keep junk food out of house",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 906
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Unattractive: visualize consequences, make it ugly",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 907
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Difficult: uninstall apps, add friction, lock it away",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 908
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Unsatisfying: accountability partner, public commitment",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 909
+        }
+      },
+      {
+        "comment": "",
+        "key": "This is a record of all experiments you've tried with this habit.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 954
+        }
+      },
+      {
+        "comment": "",
+        "key": "Active",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 930
+        }
+      },
+      {
+        "comment": "",
+        "key": "Past",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 940
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete Habit",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 962
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 971
+        }
+      },
+      {
+        "comment": "",
+        "key": "Save",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 977
+        }
+      }
+    ]
+  },
+  "version": 1
+}
