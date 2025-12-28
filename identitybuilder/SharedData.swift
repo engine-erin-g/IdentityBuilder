@@ -9,8 +9,16 @@ import Foundation
 
 class SharedData {
     static let shared = SharedData()
-    private let userDefaults = UserDefaults(suiteName: "group.com.yourcompany.identitybuilder")
-    
+    // Try to use app group, fall back to standard UserDefaults if not available
+    private let userDefaults: UserDefaults? = {
+        // First try app group (for widgets) - matches entitlements file
+        if let appGroupDefaults = UserDefaults(suiteName: "group.erin-ndrio.identitybuilder") {
+            return appGroupDefaults
+        }
+        // Fall back to standard UserDefaults (works without app group capability)
+        return UserDefaults.standard
+    }()
+
     private init() {}
     
     // Keys for shared data
@@ -19,18 +27,27 @@ class SharedData {
         static let lastUpdate = "lastUpdate"
     }
     
-    func saveWidgetData(_ data: WidgetData) {
-        guard let encoded = try? JSONEncoder().encode(data) else { return }
-        userDefaults?.set(encoded, forKey: Keys.widgetData)
-        userDefaults?.set(Date(), forKey: Keys.lastUpdate)
+    func saveWidgetData(_ data: WidgetData) async {
+        do {
+            let encoded = try JSONEncoder().encode(data)
+            userDefaults?.set(encoded, forKey: Keys.widgetData)
+            userDefaults?.set(Date(), forKey: Keys.lastUpdate)
+        } catch {
+            print("Error encoding widget data: \(error)")
+        }
     }
-    
+
     func loadWidgetData() -> WidgetData? {
-        guard let data = userDefaults?.data(forKey: Keys.widgetData),
-              let decoded = try? JSONDecoder().decode(WidgetData.self, from: data) else {
+        guard let data = userDefaults?.data(forKey: Keys.widgetData) else {
             return nil
         }
-        return decoded
+
+        do {
+            return try JSONDecoder().decode(WidgetData.self, from: data)
+        } catch {
+            print("Error decoding widget data: \(error)")
+            return nil
+        }
     }
     
     func getLastUpdateDate() -> Date? {

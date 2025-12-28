@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9F7ED2452EA270F4006708B8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F7ED2442EA270F4006708B8 /* WidgetKit.framework */; };
+		9F7ED2472EA270F4006708B8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F7ED2462EA270F4006708B8 /* SwiftUI.framework */; };
+		9F7ED2562EA270F7006708B8 /* IdentityBuilderWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9F7ED2422EA270F4006708B8 /* IdentityBuilderWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		9F5D93782E9736FC00D30A9F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,21 +27,67 @@
 			remoteGlobalIDString = 9F5D93652E9736F900D30A9F;
 			remoteInfo = identitybuilder;
 		};
+		9F7ED2542EA270F7006708B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F5D935E2E9736F900D30A9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F7ED2412EA270F4006708B8;
+			remoteInfo = IdentityBuilderWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9F7ED25B2EA270F7006708B8 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9F7ED2562EA270F7006708B8 /* IdentityBuilderWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9F5D93662E9736F900D30A9F /* identitybuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = identitybuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5D93772E9736FC00D30A9F /* identitybuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = identitybuilderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5D93812E9736FC00D30A9F /* identitybuilderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = identitybuilderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F7ED2422EA270F4006708B8 /* IdentityBuilderWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IdentityBuilderWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F7ED2442EA270F4006708B8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		9F7ED2462EA270F4006708B8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		9F7ED2642EA27244006708B8 /* IdentityBuilderWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IdentityBuilderWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		9F5D93892E9736FC00D30A9F /* Exceptions for "identitybuilder" folder in "identitybuilder" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				HabitWidget.swift,
+				HabitWidgetBundle.swift,
 				Info.plist,
 			);
 			target = 9F5D93652E9736F900D30A9F /* identitybuilder */;
+		};
+		9F7ED25A2EA270F7006708B8 /* Exceptions for "IdentityBuilderWidget" folder in "IdentityBuilderWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9F7ED2412EA270F4006708B8 /* IdentityBuilderWidgetExtension */;
+		};
+		9F7ED25D2EA2715C006708B8 /* Exceptions for "identitybuilder" folder in "IdentityBuilderWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				HabitExtensions.swift,
+				HabitWidget.swift,
+				HabitWidgetBundle.swift,
+				Models.swift,
+				SharedData.swift,
+				WidgetModels.swift,
+			);
+			target = 9F7ED2412EA270F4006708B8 /* IdentityBuilderWidgetExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -44,6 +96,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				9F5D93892E9736FC00D30A9F /* Exceptions for "identitybuilder" folder in "identitybuilder" target */,
+				9F7ED25D2EA2715C006708B8 /* Exceptions for "identitybuilder" folder in "IdentityBuilderWidgetExtension" target */,
 			);
 			path = identitybuilder;
 			sourceTree = "<group>";
@@ -56,6 +109,14 @@
 		9F5D93842E9736FC00D30A9F /* identitybuilderUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = identitybuilderUITests;
+			sourceTree = "<group>";
+		};
+		9F7ED2482EA270F4006708B8 /* IdentityBuilderWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9F7ED25A2EA270F7006708B8 /* Exceptions for "IdentityBuilderWidget" folder in "IdentityBuilderWidgetExtension" target */,
+			);
+			path = IdentityBuilderWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -82,15 +143,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9F7ED23F2EA270F4006708B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F7ED2472EA270F4006708B8 /* SwiftUI.framework in Frameworks */,
+				9F7ED2452EA270F4006708B8 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		9F5D935D2E9736F900D30A9F = {
 			isa = PBXGroup;
 			children = (
+				9F7ED2642EA27244006708B8 /* IdentityBuilderWidgetExtension.entitlements */,
 				9F5D93682E9736F900D30A9F /* identitybuilder */,
 				9F5D937A2E9736FC00D30A9F /* identitybuilderTests */,
 				9F5D93842E9736FC00D30A9F /* identitybuilderUITests */,
+				9F7ED2482EA270F4006708B8 /* IdentityBuilderWidget */,
+				9F7ED2432EA270F4006708B8 /* Frameworks */,
 				9F5D93672E9736F900D30A9F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,8 +174,18 @@
 				9F5D93662E9736F900D30A9F /* identitybuilder.app */,
 				9F5D93772E9736FC00D30A9F /* identitybuilderTests.xctest */,
 				9F5D93812E9736FC00D30A9F /* identitybuilderUITests.xctest */,
+				9F7ED2422EA270F4006708B8 /* IdentityBuilderWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9F7ED2432EA270F4006708B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9F7ED2442EA270F4006708B8 /* WidgetKit.framework */,
+				9F7ED2462EA270F4006708B8 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,10 +198,12 @@
 				9F5D93622E9736F900D30A9F /* Sources */,
 				9F5D93632E9736F900D30A9F /* Frameworks */,
 				9F5D93642E9736F900D30A9F /* Resources */,
+				9F7ED25B2EA270F7006708B8 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9F7ED2552EA270F7006708B8 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				9F5D93682E9736F900D30A9F /* identitybuilder */,
@@ -176,6 +261,28 @@
 			productReference = 9F5D93812E9736FC00D30A9F /* identitybuilderUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		9F7ED2412EA270F4006708B8 /* IdentityBuilderWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F7ED2572EA270F7006708B8 /* Build configuration list for PBXNativeTarget "IdentityBuilderWidgetExtension" */;
+			buildPhases = (
+				9F7ED23E2EA270F4006708B8 /* Sources */,
+				9F7ED23F2EA270F4006708B8 /* Frameworks */,
+				9F7ED2402EA270F4006708B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				9F7ED2482EA270F4006708B8 /* IdentityBuilderWidget */,
+			);
+			name = IdentityBuilderWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = IdentityBuilderWidgetExtension;
+			productReference = 9F7ED2422EA270F4006708B8 /* IdentityBuilderWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,6 +304,9 @@
 						CreatedOnToolsVersion = 26.0.1;
 						TestTargetID = 9F5D93652E9736F900D30A9F;
 					};
+					9F7ED2412EA270F4006708B8 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
 				};
 			};
 			buildConfigurationList = 9F5D93612E9736F900D30A9F /* Build configuration list for PBXProject "identitybuilder" */;
@@ -216,6 +326,7 @@
 				9F5D93652E9736F900D30A9F /* identitybuilder */,
 				9F5D93762E9736FC00D30A9F /* identitybuilderTests */,
 				9F5D93802E9736FC00D30A9F /* identitybuilderUITests */,
+				9F7ED2412EA270F4006708B8 /* IdentityBuilderWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -236,6 +347,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9F5D937F2E9736FC00D30A9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F7ED2402EA270F4006708B8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -266,6 +384,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9F7ED23E2EA270F4006708B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -278,6 +403,11 @@
 			isa = PBXTargetDependency;
 			target = 9F5D93652E9736F900D30A9F /* identitybuilder */;
 			targetProxy = 9F5D93822E9736FC00D30A9F /* PBXContainerItemProxy */;
+		};
+		9F7ED2552EA270F7006708B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F7ED2412EA270F4006708B8 /* IdentityBuilderWidgetExtension */;
+			targetProxy = 9F7ED2542EA270F7006708B8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -294,6 +424,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = identitybuilder/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = IdentityBuilder;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -328,6 +459,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = identitybuilder/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = IdentityBuilder;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -555,6 +687,68 @@
 			};
 			name = Release;
 		};
+		9F7ED2582EA270F7006708B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = IdentityBuilderWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4CXBYS784C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IdentityBuilderWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = IdentityBuilderWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "erin-ndrio.identitybuilder.IdentityBuilderWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9F7ED2592EA270F7006708B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = IdentityBuilderWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4CXBYS784C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IdentityBuilderWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = IdentityBuilderWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "erin-ndrio.identitybuilder.IdentityBuilderWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -590,6 +784,15 @@
 			buildConfigurations = (
 				9F5D93932E9736FC00D30A9F /* Debug */,
 				9F5D93942E9736FC00D30A9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F7ED2572EA270F7006708B8 /* Build configuration list for PBXNativeTarget "IdentityBuilderWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F7ED2582EA270F7006708B8 /* Debug */,
+				9F7ED2592EA270F7006708B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

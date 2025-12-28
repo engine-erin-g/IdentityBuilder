@@ -10,26 +10,14 @@ import SwiftData
 
 @main
 struct identitybuilderApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Habit.self,
-            HabitCompletion.self,
-            WeeklyRetrospective.self,
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    // Disable animation for better performance
+                    UIView.setAnimationsEnabled(true)
+                }
         }
-        .modelContainer(sharedModelContainer)
+        .modelContainer(for: [Habit.self, HabitCompletion.self, WeeklyRetrospective.self])
     }
 }

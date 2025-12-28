@@ -18,12 +18,16 @@ struct WidgetData: Codable {
     let weekNumber: Int
     let currentWeekCompletion: Int
     let lastWeekCompletion: Int
+    let actualRate: Int  // Actual completion rate (up to today)
+    let potentialRate: Int  // Potential rate if all future habits completed
     let habits: [WidgetHabit]
-    
+
     static let sample = WidgetData(
         weekNumber: 41,
         currentWeekCompletion: 66,
         lastWeekCompletion: 94,
+        actualRate: 84,
+        potentialRate: 89,
         habits: [
             WidgetHabit(identity: "Reader", streak: 25, weeklyCompletions: [true, true, true, false, false, false, false]),
             WidgetHabit(identity: "Athlete", streak: 1, weeklyCompletions: [true, false, true, false, false, false, false]),

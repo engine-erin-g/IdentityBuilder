@@ -11,9 +11,10 @@
 import WidgetKit
 import SwiftUI
 
-// @main  // Uncomment when moved to Widget Extension target
+@main  // Uncomment when moved to Widget Extension target
 struct HabitWidgetBundle: WidgetBundle {
     var body: some Widget {
-        HabitWidget()
+        HabitsOverviewWidget()
+        CompletionRateWidget()
     }
 }

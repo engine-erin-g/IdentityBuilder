@@ -12,13 +12,15 @@ import WidgetKit
 struct NewHabitView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
-    
+    @Query private var habits: [Habit]
+
     @State private var habitName = ""
     @State private var identity = ""
     @State private var experiments: [String] = []
     @State private var experimentHistory: [String] = []
     @State private var newExperiment = ""
     @State private var selectedDays: Set<Int> = [1, 2, 3, 4, 5, 6, 0] // All days selected by default
+    @State private var showingLimitAlert = false
 
     private let weekdays = [
         (1, "Mon"),
@@ -29,28 +31,34 @@ struct NewHabitView: View {
         (6, "Sat"),
         (0, "Sun")
     ]
-    
+
     var isValidForm: Bool {
         !habitName.isEmpty && !identity.isEmpty && !selectedDays.isEmpty
+    }
+
+    private static let maxHabitsLimit = 13 // Benjamin Franklin's 13 virtues
+
+    var hasReachedLimit: Bool {
+        habits.count >= Self.maxHabitsLimit
     }
     
     var body: some View {
         NavigationView {
             Form {
-                Section("HABIT") {
-                    TextField("What do you want to do?", text: $habitName)
-                        .textFieldStyle(.roundedBorder)
-                    
-                    Text("e.g., \"Exercise for 30 minutes\", \"Read for 20 minutes\"")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-                
                 Section("IDENTITY") {
                     TextField("What identity are you building?", text: $identity)
                         .textFieldStyle(.roundedBorder)
-                    
-                    Text("e.g., \"Athlete\", \"Reader\", \"Leader\", \"Artist\", \"Entrepreneur\"")
+
+                    Text("e.g., \"Athlete\", \"Reader\", \"Present\", \"Leader\", \"Artist\", \"Entrepreneur\"")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+
+                Section("HABIT") {
+                    TextField("What does this identity do daily?", text: $habitName)
+                        .textFieldStyle(.roundedBorder)
+
+                    Text("e.g., \"Exercise for 30 minutes\", \"Read for 20 minutes\"")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -162,11 +170,20 @@ struct NewHabitView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
-                        addHabit()
-                        dismiss()
+                        if hasReachedLimit {
+                            showingLimitAlert = true
+                        } else {
+                            addHabit()
+                            dismiss()
+                        }
                     }
                     .disabled(!isValidForm)
                 }
+            }
+            .alert("Hold on there, overachiever! 🎯", isPresented: $showingLimitAlert) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text("Even Benjamin Franklin limited himself to 13 daily habits! Focus on mastering these before adding more.")
             }
         }
     }
@@ -180,11 +197,16 @@ struct NewHabitView: View {
             }
         }
 
+        // Set sortOrder to be after all existing habits
+        let maxSortOrder = habits.map { $0.sortOrder }.max() ?? -1
+        let newSortOrder = maxSortOrder + 1
+
         let newHabit = Habit(
             name: habitName,
             identity: identity,
             experiments: experiments,
-            selectedDays: selectedDays
+            selectedDays: selectedDays,
+            sortOrder: newSortOrder
         )
 
         // Set experiment history
@@ -199,8 +221,10 @@ struct NewHabitView: View {
             let fetchDescriptor = FetchDescriptor<Habit>()
             if let allHabits = try? modelContext.fetch(fetchDescriptor) {
                 let widgetData = allHabits.toWidgetData()
-                SharedData.shared.saveWidgetData(widgetData)
-                WidgetCenter.shared.reloadAllTimelines()
+                Task.detached(priority: .background) {
+                    await SharedData.shared.saveWidgetData(widgetData)
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
             }
         } catch {
             print("Error saving habit: \(error)")

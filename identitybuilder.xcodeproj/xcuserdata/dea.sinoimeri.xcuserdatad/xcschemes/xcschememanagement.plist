@@ -4,10 +4,38 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>IdentityBuilderWidgetExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>identitybuilder.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>9F5D93652E9736F900D30A9F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F5D93762E9736FC00D30A9F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F5D93802E9736FC00D30A9F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F7ED2412EA270F4006708B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
