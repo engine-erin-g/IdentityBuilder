@@ -1,0 +1,79 @@
+{
+  "" : {
+    "diagnostics" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/IdentityBuilderWidgetExtension-primary.dia",
+    "emit-module-dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/IdentityBuilderWidgetExtension-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/IdentityBuilderWidgetExtension-primary-emit-module.dia",
+    "pch" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/IdentityBuilderWidgetExtension-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/IdentityBuilderWidgetExtension-primary.swiftdeps"
+  },
+  "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/ndrios/Documents/IdentityBuilder/identitybuilder/HabitExtensions.swift" : {
+    "const-values" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitExtensions.swiftconstvalues",
+    "dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitExtensions.d",
+    "diagnostics" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitExtensions.dia",
+    "index-unit-output-path" : "/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitExtensions.o",
+    "llvm-bc" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitExtensions.bc",
+    "object" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitExtensions.o",
+    "swift-dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitExtensions.swiftdeps",
+    "swiftmodule" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitExtensions~partial.swiftmodule"
+  },
+  "/Users/ndrios/Documents/IdentityBuilder/identitybuilder/HabitWidget.swift" : {
+    "const-values" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidget.swiftconstvalues",
+    "dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidget.d",
+    "diagnostics" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidget.dia",
+    "index-unit-output-path" : "/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidget.o",
+    "llvm-bc" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidget.bc",
+    "object" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidget.o",
+    "swift-dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidget.swiftdeps",
+    "swiftmodule" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidget~partial.swiftmodule"
+  },
+  "/Users/ndrios/Documents/IdentityBuilder/identitybuilder/HabitWidgetBundle.swift" : {
+    "const-values" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidgetBundle.swiftconstvalues",
+    "dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidgetBundle.d",
+    "diagnostics" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidgetBundle.dia",
+    "index-unit-output-path" : "/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidgetBundle.o",
+    "llvm-bc" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidgetBundle.bc",
+    "object" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidgetBundle.o",
+    "swift-dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidgetBundle.swiftdeps",
+    "swiftmodule" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/HabitWidgetBundle~partial.swiftmodule"
+  },
+  "/Users/ndrios/Documents/IdentityBuilder/identitybuilder/Models.swift" : {
+    "const-values" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/Models.swiftconstvalues",
+    "dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/Models.d",
+    "diagnostics" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/Models.dia",
+    "index-unit-output-path" : "/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/Models.o",
+    "llvm-bc" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/Models.bc",
+    "object" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/Models.o",
+    "swift-dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/Models.swiftdeps",
+    "swiftmodule" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/Models~partial.swiftmodule"
+  },
+  "/Users/ndrios/Documents/IdentityBuilder/identitybuilder/SharedData.swift" : {
+    "const-values" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/SharedData.swiftconstvalues",
+    "dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/SharedData.d",
+    "diagnostics" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/SharedData.dia",
+    "index-unit-output-path" : "/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/SharedData.o",
+    "llvm-bc" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/SharedData.bc",
+    "object" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/SharedData.o",
+    "swift-dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/SharedData.swiftdeps",
+    "swiftmodule" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/SharedData~partial.swiftmodule"
+  },
+  "/Users/ndrios/Documents/IdentityBuilder/identitybuilder/WidgetModels.swift" : {
+    "const-values" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/WidgetModels.swiftconstvalues",
+    "dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/WidgetModels.d",
+    "diagnostics" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/WidgetModels.dia",
+    "index-unit-output-path" : "/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/WidgetModels.o",
+    "llvm-bc" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/WidgetModels.bc",
+    "object" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/WidgetModels.o",
+    "swift-dependencies" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/WidgetModels.swiftdeps",
+    "swiftmodule" : "/Users/ndrios/Documents/IdentityBuilder/build/Build/Intermediates.noindex/identitybuilder.build/Debug-iphonesimulator/IdentityBuilderWidgetExtension.build/Objects-normal/arm64/WidgetModels~partial.swiftmodule"
+  }
+}

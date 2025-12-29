@@ -40,7 +40,8 @@ struct HabitTrendChart: View {
     }
 
     private var periodsSinceCreation: Int {
-        let calendar = Calendar.current
+        var calendar = Calendar.current
+        calendar.firstWeekday = kMondayFirstWeekday
         let today = Date()
 
         switch trendType {
@@ -180,13 +181,16 @@ struct HabitTrendChart: View {
 
         switch trendType {
         case .weekly:
+            guard let currentWeekStart = calendar.dateInterval(of: .weekOfYear, for: today)?.start else {
+                return []
+            }
             for weekOffset in (0..<periodsSinceCreation).reversed() {
-                guard let weekStart = calendar.date(byAdding: .weekOfYear, value: -weekOffset, to: today) else {
+                guard let weekStart = calendar.date(byAdding: .weekOfYear, value: -weekOffset, to: currentWeekStart) else {
                     labels.append("")
                     continue
                 }
                 let weekNum = calendar.component(.weekOfYear, from: weekStart)
-                labels.append("\(weekNum)")
+                labels.append("Week \(weekNum)")
             }
 
         case .monthly:
@@ -208,7 +212,7 @@ struct HabitTrendChart: View {
     private var tableLabels: [String] {
         switch trendType {
         case .weekly:
-            return periodLabels.map { "Week \($0)" }
+            return periodLabels
         case .monthly:
             let calendar = Calendar.current
             let formatter = DateFormatter()
